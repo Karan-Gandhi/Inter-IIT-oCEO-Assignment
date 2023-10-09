@@ -29,9 +29,12 @@ const FormRoute: React.FC<FormRouteProps> = () => {
     socket.on("connect", onConnect);
     socket.on("disconnect", onDisconnect);
 
+    socket.connect();
+
     return () => {
       socket.off("connect", onConnect);
       socket.off("disconnect", onDisconnect);
+      socket.disconnect();
     };
   }, []);
 
@@ -122,7 +125,7 @@ const FormRoute: React.FC<FormRouteProps> = () => {
             </div>
             <div className="mb-2 mt-2	flex justify-end">
               <div className="font-medium ml-8" style={{ color: "#000" }}>
-                <Link to="/scoreboard">
+                <Link to="/scoreboard/">
                   <span className="nav-link">View the leaderboard</span>
                 </Link>
               </div>

@@ -20,8 +20,6 @@ const socketServer = require("socket.io")(http, {
 
 // Sorry I have written all this in a single file cause I was running out of time :(
 socketServer.on("connection", (socket: Socket) => {
-  console.log("User connected: " + socket.id);
-
   socket.on("new-entry", async (data: Entry, ack) => {
     // add to firebase and emit to all clients
     const collegeScoreList = await readData<CollegeScoreList>("Scores", data.collegeName);
@@ -36,7 +34,6 @@ socketServer.on("connection", (socket: Socket) => {
         games: [data],
       });
     }
-    console.log("New entry: " + JSON.stringify(data));
     socketServer.emit(
       "new-entry",
       collegeScoreList || { collegeName: data.collegeName, score: data.points, games: [data] }
@@ -44,9 +41,7 @@ socketServer.on("connection", (socket: Socket) => {
     ack(data);
   });
 
-  socket.on("disconnect", () => {
-    console.log("User disconnected: " + socket.id);
-  });
+  socket.on("disconnect", () => {});
 });
 
 app.get("/", (_, res) => {

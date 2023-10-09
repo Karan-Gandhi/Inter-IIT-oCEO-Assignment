@@ -54,7 +54,6 @@ var socketServer = require("socket.io")(http, {
 });
 // Sorry I have written all this in a single file cause I was running out of time :(
 socketServer.on("connection", function (socket) {
-    console.log("User connected: " + socket.id);
     socket.on("new-entry", function (data, ack) { return __awaiter(void 0, void 0, void 0, function () {
         var collegeScoreList;
         return __generator(this, function (_a) {
@@ -78,16 +77,13 @@ socketServer.on("connection", function (socket) {
                     _a.sent();
                     _a.label = 5;
                 case 5:
-                    console.log("New entry: " + JSON.stringify(data));
                     socketServer.emit("new-entry", collegeScoreList || { collegeName: data.collegeName, score: data.points, games: [data] });
                     ack(data);
                     return [2 /*return*/];
             }
         });
     }); });
-    socket.on("disconnect", function () {
-        console.log("User disconnected: " + socket.id);
-    });
+    socket.on("disconnect", function () { });
 });
 app.get("/", function (_, res) {
     res.send("Hello, world");

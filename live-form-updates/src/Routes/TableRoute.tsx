@@ -28,10 +28,8 @@ const TableRoute: React.FC<TableRouteProps> = () => {
     };
 
     const onNewEntry = (entry: CollegeScoreList) => {
-      console.log(entry, "entry");
       setCollegeScoreList(oldCollegeScoreList => {
         let newCollegeScoreList = [...oldCollegeScoreList];
-        // replace the collegeScoreList with the new entry
         newCollegeScoreList.splice(
           newCollegeScoreList.findIndex(e => e.collegeName === entry.collegeName),
           1,
@@ -44,11 +42,13 @@ const TableRoute: React.FC<TableRouteProps> = () => {
     socket.on("connect", onConnect);
     socket.on("new-entry", onNewEntry);
     socket.on("disconnect", onDisconnect);
+    socket.connect();
 
     return () => {
       socket.off("connect", onConnect);
       socket.off("newEntry", onNewEntry);
       socket.off("disconnect", onDisconnect);
+      socket.disconnect();
     };
   }, [enqueueSnackbar]);
 
@@ -92,7 +92,7 @@ const TableRoute: React.FC<TableRouteProps> = () => {
         <div className="w-fit flex items-center flex-col bg-white px-20 py-10 my-20 rounded-xl">
           <div className="my-5 flex justify-between w-full align-center">
             <div>
-              <span className="text-6xl font-semibold">
+              <span className="text-6xl font-semibold mr-20">
                 <ArrowBackIosIcon
                   className="mr-4 my-auto cursor-pointer"
                   onClick={() => {
