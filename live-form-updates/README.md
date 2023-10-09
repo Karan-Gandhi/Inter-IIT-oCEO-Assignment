@@ -28,7 +28,7 @@ node -v
 
 This should print the version of NodeJS running on your system.
 
-**Please note that the following command should also run:**
+**Please note that the following command should also run and print out your npm version:**
 
 ```
 npm -v
