@@ -10,6 +10,12 @@ The Tech stack that I have used for this project is:
 - NodeJS (Express + socket.io) for the back-end.
 - Firebase Firestore for the databasing.
 
+## Features
+
+- Add the score of games, for a given college.
+- View the games that have been played by the college.
+- Live scoreboard.
+
 ## Running this app
 
 ### 1. Installing NodeJS and Yarn
@@ -47,3 +53,40 @@ Once installed, you can check the installation by running:
 ```
 yarn --version
 ```
+
+### 2. Unzip the app
+
+You can download and unzip the zipped file in the terminal which you want.
+
+### 3. Run the Front-end app
+
+To run the front-end app, you need to open an instance of the terminal and navigate to the directory where you have unzipped the folder. You directory should look like this:
+
+```
+/client
+/server
+README.md
+```
+
+Now run the following commands:
+
+```
+cd client
+yarn start
+```
+
+This should start the front-end app on port `3000`, and a new browser window should appear.
+
+### 4. Run the Server
+
+To run the server open another instance of the terminal (keep the one where the client is running on) and run the following commands:
+
+```
+cd server
+yarn build
+yarn start
+```
+
+This should start the server on port `5000`.
+
+Now you should be able to see the form and the scoreboard.
