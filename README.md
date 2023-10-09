@@ -54,13 +54,26 @@ Once installed, you can check the installation by running:
 yarn --version
 ```
 
-### 2. Unzip the app
+### 2. Clone and install the dependencies
 
-You can download and unzip the zipped file in the terminal which you want.
+Open the directory where you wanna clone the repo and run the following command.
+
+```
+git clone https://github.com/Karan-Gandhi/Inter-IIT-oCEO-Assignment.git
+```
+
+Now to install the dependencies open the cloned directory and run:
+
+```
+cd server
+yarn install
+cd ../client
+yarn install
+```
 
 ### 3. Run the Front-end app
 
-To run the front-end app, you need to open an instance of the terminal and navigate to the directory where you have unzipped the folder. You directory should look like this:
+To run the front-end app, you need to open an instance of the terminal and navigate to the directory where you have cloned the repo. You directory should look like this:
 
 ```
 /client
@@ -79,7 +92,7 @@ This should start the front-end app on port `3000`, and a new browser window sho
 
 ### 4. Run the Server
 
-To run the server open another instance of the terminal (keep the one where the client is running on) and run the following commands:
+To run the server open another instance of the terminal (keep the one where the client is running on) and run the following commands (in the directory of the cloned repo):
 
 ```
 cd server
