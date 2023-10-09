@@ -1,0 +1,22 @@
+import JoinMessage from "../types/JoinMessage";
+import LeaveMessage from "../types/LeaveMessage";
+import { MeetingMessage } from "../types/Meeting";
+import Message from "../types/Message";
+import Team from "../types/Team";
+import { UserID } from "../types/User";
+export declare const createTeam: (name: string, admin: UserID, members: UserID[]) => Promise<Team>;
+export declare const getTeamById: (id: TeamID) => Promise<Team>;
+export declare const updateTeamData: (id: TeamID, team: Team) => Promise<FirebaseFirestore.WriteResult>;
+export declare const joinTeam: (userID: UserID, teamID: TeamID) => Promise<FirebaseFirestore.WriteResult>;
+export declare const getTeamFeed: (teamId: TeamID) => Promise<TeamFeed>;
+export declare const updateTeamFeed: (teamID: TeamID, feed: TeamFeed) => Promise<FirebaseFirestore.WriteResult>;
+export declare const createTeamFeed: (teamID: TeamID) => Promise<FirebaseFirestore.WriteResult>;
+export declare const addFeedItem: (teamID: TeamID, message: MeetingMessage | Message | JoinMessage | LeaveMessage, type: FeedType) => Promise<FirebaseFirestore.WriteResult>;
+export declare const getTeamMembers: (teamID: TeamID) => Promise<any>;
+export declare const addUserToTeam: (teamID: TeamID, userID: UserID) => Promise<void>;
+export declare const getTeamAdmin: (teamID: TeamID) => Promise<any>;
+export declare const removeUser: (teamID: TeamID, userID: UserID) => Promise<void>;
+export declare const userBelongsToTeam: (teamID: TeamID, userID: UserID) => Promise<boolean>;
+export declare const addMeeting: (teamID: TeamID, meetingID: string) => Promise<void>;
+export declare const getTeamMeetings: (teamID: TeamID) => Promise<any>;
+//# sourceMappingURL=TeamsUtils.d.ts.map
