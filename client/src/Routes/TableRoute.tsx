@@ -30,11 +30,13 @@ const TableRoute: React.FC<TableRouteProps> = () => {
     const onNewEntry = (entry: CollegeScoreList) => {
       setCollegeScoreList(oldCollegeScoreList => {
         let newCollegeScoreList = [...oldCollegeScoreList];
-        newCollegeScoreList.splice(
-          newCollegeScoreList.findIndex(e => e.collegeName === entry.collegeName),
-          1,
-          entry
-        );
+        if (newCollegeScoreList.findIndex(e => e.collegeName === entry.collegeName) !== -1)
+          newCollegeScoreList.splice(
+            newCollegeScoreList.findIndex(e => e.collegeName === entry.collegeName),
+            1,
+            entry
+          );
+        else newCollegeScoreList.push(entry);
         return newCollegeScoreList.sort((a: CollegeScoreList, b: CollegeScoreList) => b.score - a.score);
       });
     };
