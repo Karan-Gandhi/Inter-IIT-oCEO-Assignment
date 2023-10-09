@@ -1,0 +1,1 @@
+{"version":3,"file":"CollegeScoreList.d.ts","sourceRoot":"","sources":["../../types/CollegeScoreList.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,SAAS,CAAC;AAE5B,MAAM,CAAC,OAAO,WAAW,gBAAgB;IACvC,WAAW,EAAE,MAAM,CAAC;IACpB,KAAK,EAAE,MAAM,CAAC;IACd,KAAK,EAAE,KAAK,EAAE,CAAC;CAChB"}
